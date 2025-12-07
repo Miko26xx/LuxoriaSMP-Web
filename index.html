@@ -3,48 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RichSMP - Home</title>
+    <title>RichSMP - Minecraft Server</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-<body class="dark-theme">
-
-    <div class="controls">
-        <button id="themeToggle"><i class="fas fa-moon"></i></button>
-        <button id="musicToggle"><i class="fas fa-music"></i></button>
-    </div>
-
-    <div id="musicPanel" class="music-panel hidden">
-        <h3>Music Control</h3>
-        <iframe id="ytplayer" width="300" height="170"
-            src="https://www.youtube.com/watch?v=_VuJA-VQRcY&autoplay=1&loop=1&playlist=_VuJA-VQRcY"
-            frameborder="0" allow="autoplay"></iframe>
-        <div class="volume-control">
-            <i class="fas fa-volume-down"></i>
-            <input type="range" id="volumeSlider" min="0" max="100" value="30">
-            <i class="fas fa-volume-up"></i>
-        </div>
-    </div>
+<body>
 
     <header>
         <div class="logo-container">
             <img src="logo.png" alt="RichSMP Logo" class="logo">
         </div>
         <h1>RichSMP</h1>
-        <p class="tagline">EU • Survival • No Crystal PvP • Active Staff</p>
+        <p class="tagline">The Ultimate Survival Experience</p>
     </header>
 
-    <!-- NAVIGATION -->
-    <nav class="nav-buttons">
-        <a href="index.html" class="nav-btn active">Home</a>
-        <a href="staff-apply.html" class="nav-btn">Staff Application</a>
-        <a href="whitelist-apply.html" class="nav-btn">Whitelist Application</a>
-        <a href="admin-login.html" class="nav-btn admin-only">Admin Panel (Staff Only)</a>
-    </nav>
+    <section class="status-section">
+        <h2>Server Status</h2>
+        <div class="status-indicator" id="statusCircle"></div>
+        <p class="status-text" id="statusText">Loading...</p>
 
-    <!-- Rest of your site (status, rules, about) stays the same -->
-    <!-- ... put your old sections here ... -->
+        <div class="live-times">
+            <p>Current time: <strong id="currentTime">00:00</strong></p>
+            <p>Server online since: <strong id="upSince">00:00</strong></p>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item"><div class="legend-circle green"></div><span>Online</span></div>
+            <div class="legend-item"><div class="legend-circle yellow"></div><span>Updates</span></div>
+            <div class="legend-item"><div class="legend-circle red"></div><span>Offline</span></div>
+        </div>
+
+        <div id="status-history">
+            <h2>Status History (24h format)</h2>
+            <ul class="history-list" id="historyList"></ul>
+        </div>
+    </section>
+
+    <section id="about-us">
+        <h2>About Us</h2>
+        <div class="cards">
+            <div class="card"><div class="card-inner">
+                <h3>Mikoli</h3><p class="role">Founder & Owner</p>
+                <p>Creator of RichSMP – always grinding for the best experience.</p>
+            </div></div>
+            <div class="card"><div class="card-inner">
+                <h3>Jeremi</h3><p class="role">Co-Owner</p>
+                <p>Keeps the server alive, plugins fresh, and events fire.</p>
+            </div></div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 RichSMP • EU Timezone • 24h Clock</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RichSMP - Minecraft Server</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="logo.png" alt="RichSMP Logo" class="logo">
+        </div>
+        <h1>RichSMP</h1>
+        <p class="tagline">The Ultimate Survival Experience</p>
+    </header>
+
+    <section class="status-section">
+        <h2>Server Status</h2>
+        <div class="status-indicator" id="statusCircle"></div>
+        <p class="status-text" id="statusText">Loading...</p>
+
+        <div class="live-times">
+            <p>Current time: <strong id="currentTime">00:00</strong></p>
+            <p>Server online since: <strong id="upSince">00:00</strong></p>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item"><div class="legend-circle green"></div><span>Online</span></div>
+            <div class="legend-item"><div class="legend-circle yellow"></div><span>Updates</span></div>
+            <div class="legend-item"><div class="legend-circle red"></div><span>Offline</span></div>
+        </div>
+
+        <div id="status-history">
+            <h2>Status History (24h format)</h2>
+            <ul class="history-list" id="historyList"></ul>
+        </div>
+    </section>
+
+    <section id="about-us">
+        <h2>About Us</h2>
+        <div class="cards">
+            <div class="card"><div class="card-inner">
+                <h3>Mikoli</h3><p class="role">Founder & Owner</p>
+                <p>Creator of RichSMP – always grinding for the best experience.</p>
+            </div></div>
+            <div class="card"><div class="card-inner">
+                <h3>Jeremi</h3><p class="role">Co-Owner</p>
+                <p>Keeps the server alive, plugins fresh, and events fire.</p>
+            </div></div>
+        </div>
+    </section>
+
+        <!-- =============== RULES SECTION =============== -->
+    <section id="rules">
+        <h2>Server Rules</h2>
+        <div class="rules-grid">
+            <div class="rule-card">
+                <h3>No Cheating</h3>
+                <p>X-ray, kill aura, fly, speed, Jesus, scaffold, reach, etc. → Instant permanent ban</p>
+            </div>
+            <div class="rule-card">
+                <h3>No Crystal PvP</h3>
+                <p>Crystal/anchor bombing in PvP is forbidden — fight like a real warrior</p>
+            </div>
+            <div class="rule-card">
+                <h3>No Exploits & Duping</h3>
+                <p>Any kind of dupe, rail dupe, TNT dupe, chunk ban, etc. = permanent ban</p>
+            </div>
+            <div class="rule-card">
+                <h3>No Griefing Spawn</h3>
+                <p>Destroying or lava-casting within 500 blocks of spawn is not allowed</p>
+            </div>
+            <div class="rule-card">
+                <h3>Be Respectful</h3>
+                <p>No toxicity, racism, threats, or spam in chat</p>
+            </div>
+            <div class="rule-card">
+                <h3>No Lag Machines</h3>
+                <p>Redstone clocks, 0-tick farms, entity cramming machines → will be removed + warning/ban</p>
+            </div>
+            <div class="rule-card">
+                <h3>English Only in Global Chat</h3>
+                <p>Use /msg or team chat for other languages</p>
+            </div>
+            <div class="rule-card">
+                <h3>Have Fun!</h3>
+                <p>Play fair and enjoy the grind — that’s what RichSMP is all about</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 RichSMP • EU Timezone • 24h Clock</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
