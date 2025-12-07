@@ -1,0 +1,1 @@
+# RichSmp-web
