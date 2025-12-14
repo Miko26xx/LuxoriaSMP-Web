@@ -1,1 +1,1 @@
-# RichSmp-web
+Nothing to see here
